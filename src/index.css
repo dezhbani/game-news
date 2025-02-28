@@ -1,12 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: iran-yekan-bold;
+  src: url("./assets/fonts/IRANYekanLight.ttf");
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'iran-yekan-bold', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.homeBg{
+  background-image: url('./assets/6110c1719d7a9b7a1681b94443e10d47.jpg');
+}
+.dir-rtl{
+  direction: rtl;
+}
+.dir-ltr{
+  direction: ltr;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
