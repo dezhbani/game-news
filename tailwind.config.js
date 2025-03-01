@@ -8,7 +8,13 @@ module.exports = {
       colors: {
         'orange': '#FF754C',
         'gray': '#1F212869',
-        'violet': '#6C5DD3'
+        'violet': '#6C5DD3',
+        'dark-gray': '#242731'
+      },
+      fontFamily: {
+        'Gilroy': ['Gilroy'],
+        'iranYekan': ['iranYekan-light'],
+
       },
       height: {
         '22': '88px'

@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: iran-yekan-bold;
+  font-family: iranYekan-light;
   src: url("./assets/fonts/IRANYekanLight.ttf");
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./assets/fonts/Gilroy-ExtraBold.otf");
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'iran-yekan-bold', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'iranYekan-light';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
