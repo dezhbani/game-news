@@ -1,20 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-//icons
+// Icons
 import Twitter from '../assets/icons/Twitter.svg'
 import Instagram from '../assets/icons/Instagram.svg'
 import Whatsapp from '../assets/icons/Whatsapp.svg'
 import Linkedin from '../assets/icons/Linkedin.svg'
-import { Link } from 'react-router-dom';
-
-import image1 from '../assets/metal_gear_solid.jpg'
-import image2 from '../assets/marathon-announce-press-kit-large-02-1684967832285 1.jpg'
-import image3 from '../assets/img.jpg'
-import Enamd from '../assets/logo 1.png'
-import Kasbokar from '../assets/kasbokar 1.png'
-import Samandehi from '../assets/rezi 1.png'
 import ArrowLeft from '../assets/icons/ArrowLeft.svg'
 import Message from '../assets/icons/Message.svg'
+
+// Images
+import image1 from '../assets/footer/metal_gear_solid.jpg'
+import image2 from '../assets/footer/marathon-announce-press-kit-large-02-1684967832285 1.jpg'
+import image3 from '../assets/footer/img.jpg'
+import Enamd from '../assets/footer/logo 1.png'
+import Kasbokar from '../assets/footer/kasbokar 1.png'
+import Samandehi from '../assets/footer/rezi 1.png'
 
 const Footer = () => {
     return (

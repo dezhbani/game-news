@@ -1,8 +1,10 @@
 import React from "react";
 import Tag from "./Tag";
 
-import ArrowLeft from '../../assets/icons/CircleLeft.svg'
-import CommentIcon from '../../assets/icons/Comment.svg'
+// Icons
+import ArrowLeft from '../assets/icons/CircleLeft.svg'
+import CommentIcon from '../assets/icons/Comment.svg'
+
 const Card = ({data, color=null}) => {
     const { tag, title, content, comments } = data
     return (

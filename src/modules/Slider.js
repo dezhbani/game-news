@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ArrowRight from '../../assets/icons/SmallRight.svg';
-import ArrowLeft from '../../assets/icons/SmallLeft.svg';
 import Card from './Card';
+
+// Icons
+import ArrowRight from '../assets/icons/SmallRight.svg';
+import ArrowLeft from '../assets/icons/SmallLeft.svg';
 
 const Slider = ({ data }) => {
     const [active, setActive] = useState(2);

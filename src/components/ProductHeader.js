@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import useQuery from '../hooks/useQuery';
 import { Link } from 'react-router-dom';
+
+// Icons
 import Arrow from '../assets/icons/SmallLeft.svg'
+
 const ProductHeader = () => {
     const [open, setOpen] = useState(false)
     const dropdown = ["جدید ترین", "پرفروش ترین", "bfgbggn"]
