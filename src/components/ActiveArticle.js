@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+// Icons
 import Arrow from '../assets/icons/RightArrow.svg'
+import { textMaxLength } from '../utils/functions';
+
 const ActiveArticle = ({ data, handleNext, handlePrev }) => {
-    const textMaxLength = (text, max = 110) => {
-        if (text.length > max) return text.slice(0, max) + "..."
-        else return text
-    }
     return (
         <div key={data.id} className="w-1/2 min-h-[790px] rounded-[40px] shadow-[2px_4px_30px_0px_#ffffff40] flex relative justify-center ml-5" >
             <div className='absolute z-40 left-0 ml-10 mt-14'>
