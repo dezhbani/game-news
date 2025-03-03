@@ -13,6 +13,7 @@ import slider6 from '../assets/slider/slide6.png'
 // Icons
 import Products from '../components/Products';
 import Articles from '../components/Articles';
+import Reviews from '../components/Reviews';
 
 const Home = () => {
     const sliderData = [
@@ -24,14 +25,15 @@ const Home = () => {
         slider4,
     ]
     return (
-        <div className="h-full font-iranYekan flex flex-col bg-cover bg-center bg-no-repeat homeBg relative  dir-rtl">
-            <div className="absolute z-10 inset-0 bg-black bg-opacity-50 backdrop-blur-[114px] opacity-80"></div>
+        <div className="h-full font-iranYekan flex flex-col bg-cover z-0 bg-center bg-no-repeat homeBg relative  dir-rtl">
+            <div className="absolute z-10 inset-0 bg-dark-gray bg-opacity-90 backdrop-blur-[114px] opacity-80"></div>
             <div className="relative z-10 flex flex-col flex-grow mx-24 my-5">
                 <div className="w-full">
                     <Navbar />
                     <Slider data={sliderData} />
                     <Products />
                     <Articles />
+                    <Reviews />
                 </div>
             </div>
             <div className="w-full mt-auto z-20">
