@@ -1,14 +1,18 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Slider from '../components/modules/Slider';
+import Slider from '../modules/Slider';
 
-import slider1 from '../assets/slider1.jpg'
-import slider2 from '../assets/slider2.png'
-import slider3 from '../assets/slider3.png'
-import slider4 from '../assets/slider4.png'
-import slider6 from '../assets/slider6.png'
+// Images
+import slider1 from '../assets/slider/slide1.jpg'
+import slider2 from '../assets/slider/slide2.png'
+import slider3 from '../assets/slider/slide3.png'
+import slider4 from '../assets/slider/slide4.png'
+import slider6 from '../assets/slider/slide6.png'
+
+// Icons
 import Products from '../components/Products';
+import Articles from '../components/Articles';
 
 const Home = () => {
     const sliderData = [
@@ -27,6 +31,7 @@ const Home = () => {
                     <Navbar />
                     <Slider data={sliderData} />
                     <Products />
+                    <Articles />
                 </div>
             </div>
             <div className="w-full mt-auto z-20">
