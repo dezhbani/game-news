@@ -1,11 +1,12 @@
 import React from 'react';
-
-import ProductImage1 from '../assets/fifa.png';
-import ProductImage2 from '../assets/fortnite.jpg';
-import ProductImage3 from '../assets/diablo.jpg';
-import ProductImage4 from '../assets/CallOfDuty.png';
 import Product from './Product';
 import ProductHeader from './ProductHeader';
+
+// Images
+import ProductImage1 from '../assets/product/fifa.png';
+import ProductImage2 from '../assets/product/fortnite.jpg';
+import ProductImage3 from '../assets/product/diablo.jpg';
+import ProductImage4 from '../assets/product/CallOfDuty.png';
 
 const Products = () => {
     const data = [

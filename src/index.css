@@ -16,7 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .homeBg{
-  background-image: url('./assets/6110c1719d7a9b7a1681b94443e10d47.jpg');
+  background-image: url('./assets/background.jpg');
 }
 .dir-rtl{
   direction: rtl;
