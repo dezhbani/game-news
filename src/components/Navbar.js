@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="dir-rtl w-full text-base">
             <div className="flex float-right">
                 <div className="flex justify-between items-center text-stone-300 w-[500px]">
-                    <img className='w-14 h-9' src={Logo} />
+                    <img alt='icon' className='w-14 h-9' src={Logo} />
                     <span>خانه</span>
                     <span>فروشگاه</span>
                     <span>تماس با ما</span>

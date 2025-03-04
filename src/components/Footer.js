@@ -27,19 +27,19 @@ const Footer = () => {
                         <ul className="flex flex-col mt-14 gap-4 text-base">
                             <li className="flex">
                                 <Link className="flex" to='#'>
-                                    <img className='w-24 rounded-xl' src={image1} alt='' />
+                                    <img className='w-24 rounded-xl' src={image1} alt='image' />
                                     <p className='mr-2 font-light'>این هفته چه بازی های معرفی می شوند.</p>
                                 </Link>
                             </li>
                             <li className="flex">
                                 <Link className="flex" to='#'>
-                                    <img className='w-24 rounded-xl' src={image2} alt='' />
+                                    <img className='w-24 rounded-xl' src={image2} alt='image' />
                                     <p className='mr-2 font-light'>جدیدترین تریلر بازی های جدید</p>
                                 </Link>
                             </li>
                             <li className="flex">
                                 <Link className="flex" to='#'>
-                                    <img className='w-24 rounded-xl' src={image3} alt='' />
+                                    <img className='w-24 rounded-xl' src={image3} alt='image' />
                                     <p className='mr-2 font-light'>این هفته چه بازی های معرفی می شوند.</p>
                                 </Link>
                             </li>

@@ -9,8 +9,8 @@ const ActiveArticle = ({ data, handleNext, handlePrev }) => {
     return (
         <div key={data.id} className="w-1/2 min-h-[790px] rounded-[40px] shadow-[2px_4px_30px_0px_#ffffff40] flex relative justify-center ml-5" >
             <div className='absolute z-40 left-0 ml-10 mt-14'>
-                <button className='bg-white rounded-full mx-1 py-3.5 px-3' onClick={handleNext}><img src={Arrow} /></button>
-                <button className='bg-white rounded-full mx-1 py-3.5 px-3' onClick={handlePrev}><img className='rotate-180' src={Arrow} /></button>
+                <button className='bg-white rounded-full mx-1 py-3.5 px-3' onClick={handleNext}><img alt='icon' src={Arrow} /></button>
+                <button className='bg-white rounded-full mx-1 py-3.5 px-3' onClick={handlePrev}><img alt='icon' className='rotate-180' src={Arrow} /></button>
             </div>
             <img src={data.image} alt={`slide ${data.id}`} className="h-full w-full object-right object-cover rounded-[40px]" />
             <div class="absolute inset-0 rounded-[40px] bg-black opacity-30"></div>

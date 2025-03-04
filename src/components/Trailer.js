@@ -24,7 +24,7 @@ const Trailer = ({ data }) => {
                     </div>
                 </div>
                 <div className='flex mt-5'>
-                    <img className='h-6 w-6 rounded-full object-cover object-center' src={data.author.profileImage} />
+                    <img alt='icon'className='h-6 w-6 rounded-full object-cover object-center' src={data.author.profileImage} />
                     <p className='mx-2 text-sm font-bold'>منتشر کننده: {data.author.name}</p>
                 </div>
             </div>
