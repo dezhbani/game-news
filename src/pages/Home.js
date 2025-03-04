@@ -14,6 +14,8 @@ import slider6 from '../assets/slider/slide6.png'
 import Products from '../components/Products';
 import Articles from '../components/Articles';
 import Reviews from '../components/Reviews';
+import TrailerVideo from '../components/TrailerVideo';
+import Trailers from '../components/Trailers';
 
 const Home = () => {
     const sliderData = [
@@ -34,6 +36,8 @@ const Home = () => {
                     <Products />
                     <Articles />
                     <Reviews />
+                    <TrailerVideo />
+                    <Trailers />
                 </div>
             </div>
             <div className="w-full mt-auto z-20">
