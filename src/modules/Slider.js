@@ -74,9 +74,9 @@ const Slider = ({ data }) => {
                     </div>
 
                     <div className="flex dir-ltr items-center">
-                        {data.slice(slider.start, slider.end).map((slide, i) => (
-                            <div key={slider.start + i} className={`mx-2 ${active === slider.start + i ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
-                                <img className="h-14 w-24 rounded-lg" alt={`slide ${i}`} src={slide} />
+                        {data.slice(slider.start, slider.end).map((slide, index) => (
+                            <div key={index} className={`mx-2 ${active === slider.start + index ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
+                                <img className="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={slide} />
                             </div>
                         ))}
                     </div>

@@ -68,7 +68,7 @@ const Articles = () => {
                 <ActiveArticle data={active} handlePrev={handlePrev} handleNext={handleNext} />
                 <div className='flex flex-col w-1/2 mr-5'>
                     {
-                        articles.filter(article => article.id !== active.id).map(article => <Article data={article} />)
+                        articles.filter(article => article.id !== active.id).map(article => <Article key={article.id} data={article} />)
                     }
                 </div>
             </div>

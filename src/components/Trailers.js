@@ -59,7 +59,7 @@ const Trailers = () => {
         <div className='flex flex-col py-5'>
             <div className='flex flex-row-reverse'>
                 {
-                    TrailerData.map(trailer => <Trailer data={trailer} />)
+                    TrailerData.map(trailer => <Trailer key={trailer.id} data={trailer} />)
                 }
             </div>
             <div className='w-full flex justify-center mt-10'>

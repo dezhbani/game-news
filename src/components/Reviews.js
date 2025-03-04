@@ -11,16 +11,19 @@ import review3 from '../assets/reviews/review3.jpeg'
 const Reviews = () => {
     const data = [
         {
+            id: 1,
             title: 'ویدیو نقد و بررسی بازی',
             name: 'Alan Wake 2',
             image: review1
         },
         {
+            id: 2,
             title: 'ویدیو نقد و بررسی بازی',
             name: 'The Last of Us Part 1',
             image: review2
         },
         {
+            id: 3,
             title: 'ویدیو نقد و بررسی بازی',
             name: 'Metal Gear Solid Delta: Snake Eater',
             image: review3
@@ -31,7 +34,7 @@ const Reviews = () => {
             <SectionTitle title='جدیدترین نقد و بررسی ها' />
             <div className='flex flex-row my-5 mr-5'>
                 {
-                    data.map(review => <Review data={review} />)
+                    data.map(review => <Review key={review.id} data={review} />)
                 }
             </div>
             <div className='w-full flex justify-center'>

@@ -17,7 +17,7 @@ const ActiveArticle = ({ data, handleNext, handlePrev }) => {
             <div className='absolute right-0 top-2/3 mx-8'>
                 <div className='flex'>
                     {
-                        data.tags.map(tag => <div className='bg-violet text-white px-2 py-0.5 w-fit h-fit bg-opacity-50 rounded-[10px] mx-1' >{tag}</div>)
+                        data.tags.map((tag, index) => <div key={index} className='bg-violet text-white px-2 py-0.5 w-fit h-fit bg-opacity-50 rounded-[10px] mx-1' >{tag}</div>)
                     }
                 </div>
                 <h1 className='text-[28px] font-bold mt-3'>{data.title}</h1>

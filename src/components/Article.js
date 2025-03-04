@@ -9,7 +9,7 @@ const Article = ({ data }) => {
             <div className='flex flex-col w-1/2 mx-7'>
                 <div className='flex'>
                     {
-                        data.tags.map(tag => <div className='bg-violet text-violet text-sm group-hover:bg-[#D2CBFF] group-hover:text-white group-hover:bg-opacity-10 px-2 py-0.5 w-fit h-fit bg-opacity-10 rounded-[10px] mx-1' >{tag}</div>)
+                        data.tags.map((tag, index) => <div key={index} className='bg-violet text-violet text-sm group-hover:bg-[#D2CBFF] group-hover:text-white group-hover:bg-opacity-10 px-2 py-0.5 w-fit h-fit bg-opacity-10 rounded-[10px] mx-1' >{tag}</div>)
                     }
                 </div>
                 <h1 className='my-3 font-bold leading-10'>{data.title}</h1>
