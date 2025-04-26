@@ -1,12 +1,6 @@
 import React from 'react';
-import Product from './home/Product';
-import ProductHeader from './home/ProductHeader';
-
-// Images
-import ProductImage1 from '../../assets/product/fifa.png';
-import ProductImage2 from '../../assets/product/fortnite.jpg';
-import ProductImage3 from '../../assets/product/diablo.jpg';
-import ProductImage4 from '../../assets/product/CallOfDuty.png';
+import Product from './Product';
+import ProductHeader from './ProductHeader';
 
 const Products = ({data}) => {
     return (

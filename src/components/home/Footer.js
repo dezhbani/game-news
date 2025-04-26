@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Icons
-import Twitter from '../assets/icons/Twitter.svg'
-import Instagram from '../assets/icons/Instagram.svg'
-import Whatsapp from '../assets/icons/Whatsapp.svg'
-import Linkedin from '../assets/icons/Linkedin.svg'
-import ArrowLeft from '../assets/icons/ArrowLeft.svg'
-import Message from '../assets/icons/Message.svg'
+import Twitter from '../../assets/icons/Twitter.svg'
+import Instagram from '../../assets/icons/Instagram.svg'
+import Whatsapp from '../../assets/icons/Whatsapp.svg'
+import Linkedin from '../../assets/icons/Linkedin.svg'
+import ArrowLeft from '../../assets/icons/ArrowLeft.svg'
+import Message from '../../assets/icons/Message.svg'
 
 // Images
-import image1 from '../assets/footer/metal_gear_solid.jpg'
-import image2 from '../assets/footer/marathon-announce-press-kit-large-02-1684967832285 1.jpg'
-import image3 from '../assets/footer/img.jpg'
-import Enamd from '../assets/footer/logo 1.png'
-import Kasbokar from '../assets/footer/kasbokar 1.png'
-import Samandehi from '../assets/footer/rezi 1.png'
+import image1 from '../../assets/footer/metal_gear_solid.jpg'
+import image2 from '../../assets/footer/marathon-announce-press-kit-large-02-1684967832285 1.jpg'
+import image3 from '../../assets/footer/img.jpg'
+import Enamd from '../../assets/footer/logo 1.png'
+import Kasbokar from '../../assets/footer/kasbokar 1.png'
+import Samandehi from '../../assets/footer/rezi 1.png'
+import { customToast } from '../../utils/functions';
+import { emailValidation } from '../../validations/auth.validation';
 
 const Footer = () => {
+    const [email, setEmail] = useState("")
+    const savedEmail = () => {
+        const result = emailValidation(email)
+        if (result) return customToast("success", "ایمیل شما برای اطلاع از اخبار ثبت شد")
+    }
+
+    const handleChange = event => setEmail(event.target.value)
+
     return (
         <div className='w-full text-white font-normal'>
             <div className='bg-[#33353b] px-24'>
@@ -71,9 +81,9 @@ const Footer = () => {
                             <div className='flex items-center w-full '>
                                 <span className='relative w-full'>
                                     <img className='absolute right-3 top-1' src={Message} alt='Message' />
-                                    <input className='bg-gray outline-none w-full h-[50px] px-16 rounded-2xl placeholder:text-white placeholder:font-normal' type='email' placeholder='ایمیل خود را وارد کنید.' />
+                                    <input className='bg-gray outline-none w-full h-[50px] px-16 rounded-2xl placeholder:text-white placeholder:font-normal' value={email} onChange={handleChange} type='email' placeholder='ایمیل خود را وارد کنید.' />
                                 </span>
-                                <button className='bg-violet p-3 mx-2 rounded-2xl'>
+                                <button onClick={savedEmail} className='bg-violet p-3 mx-2 rounded-2xl'>
                                     <img className='h-6' src={ArrowLeft} alt='ArrowLeft' />
                                 </button>
                             </div>

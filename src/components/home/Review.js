@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 // Icons
-import PlayIcon from '../assets/icons/Play.svg'
+import PlayIcon from '../../assets/icons/Play.svg'
+import axios from 'axios';
 
 const Review = ({ data }) => {
+    const baseUrl = axios.defaults.baseURL
+
     return (
         <div className='w-1/3 h-[550px] mx-5 first:mr-0 last:ml-0 group'>
             <div className='relative h-full w-full'>
@@ -16,7 +20,7 @@ const Review = ({ data }) => {
                         </Link>
                     </button>
                 </div>
-                <img src={data.image} alt={`1`} className="h-full w-full object-center object-cover rounded-[28px]" />
+                <img src={baseUrl + data.image} alt={`1`} className="h-full w-full object-center object-cover rounded-[28px]" />
                 <div class="absolute inset-0 rounded-[28px]  group-hover:backdrop-blur-sm h-full object-cover bg-gradient-to-t from-black via-transparent to-[rgba(0,0,0,0)]"></div>
             </div>
         </div>

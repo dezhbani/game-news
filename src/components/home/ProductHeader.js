@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import useQuery from '../hooks/useQuery';
+import useQuery from '../../hooks/useQuery';
 import { Link } from 'react-router-dom';
 
 // Icons
-import Arrow from '../assets/icons/SmallLeft.svg'
-import { textMaxLength } from '../utils/functions';
+import Arrow from '../../assets/icons/SmallLeft.svg'
+import { textMaxLength } from '../../utils/functions';
 
 const ProductHeader = () => {
     const [open, setOpen] = useState(false)

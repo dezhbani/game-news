@@ -1,11 +1,5 @@
 import React from 'react';
-
-// Images
-import TrailerImage1 from '../../assets/trailer/trailer1.png'
-import TrailerImage2 from '../../assets/trailer/trailer2.jpeg'
-import TrailerImage3 from '../../assets/trailer/trailer3.png'
-import TrailerImage4 from '../../assets/trailer/trailer4.png'
-import Trailer from './home/Trailer';
+import Trailer from './Trailer';
 import { Link } from 'react-router-dom';
 
 const Trailers = ({data}) => {

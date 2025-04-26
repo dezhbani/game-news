@@ -1,10 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 
 const Article = ({ data }) => {
+    const baseUrl = axios.defaults.baseURL
     return (
         <div className='flex rounded-[28px] group ease-in-out duration-500 hover:bg-[#36345a] bg-dark-gray text-lg my-5 p-3 first:mt-0 last:mb-0 h-1/3'>
             <div className='w-1/2'>
-                <img alt='icon' className='rounded-[28px] h-56 object-cover object-top w-full' src={data.image} />
+                <img alt='icon' className='rounded-[28px] h-56 object-cover object-top w-full' src={baseUrl + data.image} />
             </div>
             <div className='flex flex-col w-1/2 mx-7'>
                 <div className='flex'>
