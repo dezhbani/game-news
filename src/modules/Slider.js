@@ -4,36 +4,33 @@ import Card from './Card';
 // Icons
 import ArrowRight from '../assets/icons/SmallRight.svg';
 import ArrowLeft from '../assets/icons/SmallLeft.svg';
+import axios from 'axios';
 
 const Slider = ({ data }) => {
+    const { images, card } = data
+    const baseUrl = axios.defaults.baseURL
     const [active, setActive] = useState(2);
     const [slider, setSlider] = useState({ start: 0, end: 4, max: 4 });
-    const card = { 
-        tag: "مقاله جدید", 
-        title: "Call of Duty Warzone", 
-        content: "مانند دیگر بازی‌های بتل رویال سوار یک هواپیما خواهید شد و روی نقشه فرود خواهید آمد. وجه تفاوت این بازی نسبت به بقیه در تعداد بازیکنان آن است.",
-        comments: 20
-    };
 
     const rightButton = () => {
-        let nextActive = (active + 1) % data.length;
+        let nextActive = (active + 1) % images.length;
         setActive(nextActive);
 
         if (nextActive === 0) {
             setSlider({ start: 0, end: slider.max, max: slider.max });
         } else if (nextActive >= slider.end) {
-            const newEnd = Math.min(slider.end + 1, data.length);
+            const newEnd = Math.min(slider.end + 1, images.length);
             setSlider({ start: slider.start + 1, end: newEnd, max: slider.max });
         }
     };
 
     const leftButton = () => {
-        let nextActive = active - 1 < 0 ? data.length - 1 : active - 1;
+        let nextActive = active - 1 < 0 ? images.length - 1 : active - 1;
         setActive(nextActive);
 
-        if (nextActive === data.length - 1) {
-            const newStart = data.length - slider.max < 0 ? 0 : data.length - slider.max;
-            setSlider({ start: newStart, end: data.length, max: slider.max });
+        if (nextActive === images.length - 1) {
+            const newStart = images.length - slider.max < 0 ? 0 : images.length - slider.max;
+            setSlider({ start: newStart, end: images.length, max: slider.max });
         } else if (nextActive < slider.start) {
             const newStart = Math.max(0, slider.start - 1);
             const newEnd = slider.start + slider.max;
@@ -47,16 +44,16 @@ const Slider = ({ data }) => {
 
         return () => clearInterval(interval);
     }, [active]);
-    return (
+    if (images) return (
         <div className='h-full'>
             <div className='absolute z-30 left-32 top-[360px]'>
-                <Card data={card}  />
+                <Card data={card} />
             </div>
-            <div className='mb-6 mt-16 relative max-w-full mx-auto h-[500px] overflow-hidden'>
+            <div className='mb-6 mt-16 relative max-w-full mx-auto h-[500px] overflow-hidden rounded-[40px]'>
                 <div className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${active * 100}%)` }}>
-                    {data.map((slide, index) => (
+                    {images.map((slide, index) => (
                         <div key={index} className="w-full h-full flex items-center justify-center absolute top-0 left-0" style={{ transform: `translateX(${index * 100}%)` }} >
-                            <img src={slide} alt={`slide ${index}`} className="h-full w-full object-cover rounded-[40px]" />
+                            <img src={baseUrl + slide} alt={`slide ${index}`} className="h-full w-full object-cover" />
                         </div>
                     ))}
                 </div>
@@ -74,9 +71,9 @@ const Slider = ({ data }) => {
                     </div>
 
                     <div className="flex dir-ltr items-center">
-                        {data.slice(slider.start, slider.end).map((slide, index) => (
+                        {images.slice(slider.start, slider.end).map((slide, index) => (
                             <div key={index} className={`mx-2 ${active === slider.start + index ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
-                                <img className="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={slide} />
+                                <img className="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={baseUrl + slide} />
                             </div>
                         ))}
                     </div>
