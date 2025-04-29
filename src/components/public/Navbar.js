@@ -33,7 +33,7 @@ const Navbar = () => {
                         </Link>
                         :
                         <div className='flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/10'>
-                            <UserIcon className='stroke-white' />
+                            <UserIcon className='stroke-white fill-none' />
                         </div>
                 }
             </div>
