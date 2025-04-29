@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 // Icons
-import Poster from '../assets/reviews/review3.jpeg'
+// import Poster from '../assets/reviews/review3.jpeg'
 import PlayIcon from '../assets/icons/Play.svg'
 import OrangePlayIcon from '../assets/icons/OrangePlay.svg'
 import PauseIcon from '../assets/icons/Pause.svg'
@@ -9,7 +9,7 @@ import SoundIcon from '../assets/icons/Sound.svg'
 import Logo from '../assets/Logo.svg'
 import FullScreen from '../assets/icons/FullScreen.svg'
 
-const VideoPlayer = ({ video }) => {
+const VideoPlayer = ({ video, posterImage }) => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [poster, setPoster] = useState(false);
@@ -80,7 +80,7 @@ const VideoPlayer = ({ video }) => {
                 controlsList='nodownload noremoteplayback'
                 className={`w-full h-full ${poster ? " object-contain" : " object-cover"} bg-black`}
                 src={video}
-                poster={Poster}
+                poster={posterImage}
                 type="video/mp4"
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={() => setIsPlaying(false)}>

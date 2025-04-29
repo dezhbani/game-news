@@ -1,16 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import VideoPlayer from '../../modules/VideoPlayer';
+import { customToast } from '../../utils/functions';
+import { ProfileContext } from '../../contexts/UserContext';
+import axios from 'axios';
 
 // Icons
 import SaveIcon from '../../assets/icons/SaveIcon'
 import Share from '../../assets/icons/Share.svg'
 import More from '../../assets/icons/More.svg'
-
-// Videos
-import axios from 'axios';
 import LikeIcon from '../../assets/icons/LikeIcon';
-import { customToast } from '../../utils/functions';
-import { ProfileContext } from '../../contexts/UserContext';
 
 const TrailerVideo = ({ data }) => {
     const user = useContext(ProfileContext)
@@ -66,7 +64,7 @@ const TrailerVideo = ({ data }) => {
     return (
         <div className='my-10' id='trailer'>
             <div className='bg-dark-gray h-fit shadow-lg rou shadow-[#F0F3F61A] rounded-[32px]'>
-                <VideoPlayer video={baseUrl + data.video} />
+                <VideoPlayer video={baseUrl + data.video} posterImage={baseUrl + data.poster} />
                 <div className='text-white'>
                     <div className='p-9 border-b border-b-[#F0F3F61A]'>
                         <h1 className='text-4xl font-semibold mb-8'>{data.title}</h1>
@@ -89,7 +87,7 @@ const TrailerVideo = ({ data }) => {
                         </div>
                         <div>
                             <button className='bg-[#E4E4E440] py-3.5 px-4 rounded-2xl'>
-                                <img className='' src={More} alt='icon' />
+                                <img src={More} alt='icon' />
                             </button>
                         </div>
                     </div>
