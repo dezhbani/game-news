@@ -9,13 +9,15 @@ const UserContext = ({ children }) => {
         if (userProfile) {
             const parseUser = JSON.parse(userProfile)
             setUser(parseUser)
+        }else {
+            setUser(null)
         }
     }
     useEffect(() => {
         getUserProfile()
     }, [])
     return (
-        <ProfileContext.Provider value={user}>
+        <ProfileContext.Provider value={{user, refreshUserData: getUserProfile}}>
             {children}
         </ProfileContext.Provider>
     );
