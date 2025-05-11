@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/public/Navbar';
-import Footer from '../components/home/Footer';
-import Slider from '../modules/Slider';
+
+// API Services
+import { getArticles, getProducts, getReviews, getSlider, getTrailers, getTrailerVideo } from '../services/home.service';
 
 // Images
 import Logo from '../assets/Logo.svg'
 
-// Icons
+// Components
+import Navbar from '../components/public/Navbar';
+import Footer from '../components/home/Footer';
+import Slider from '../modules/Slider';
 import Products from '../components/home/Products';
 import Articles from '../components/home/Articles';
 import Reviews from '../components/home/Reviews';
 import TrailerVideo from '../components/home/TrailerVideo';
 import Trailers from '../components/home/Trailers';
-import { getArticles, getProducts, getReviews, getSlider, getTrailers, getTrailerVideo } from '../services/home.service';
+import Background from '../components/public/Background';
 
 const Home = () => {
     const [data, setData] = useState({
@@ -43,8 +46,7 @@ const Home = () => {
     }
     const getTrailerVideoData = async () => {
         const trailerVideoData = await getTrailerVideo()
-        
-        setHomeData("trailerVideo", trailerVideoData[0]) 
+        setHomeData("trailerVideo", trailerVideoData[0])
     }
     const getTrailersData = async () => {
         const trailersData = await getTrailers()
@@ -52,13 +54,12 @@ const Home = () => {
     }
     const handleLoading = () => {
         const result = Object.values(data).filter(value => !value)
-        console.log(result);
         !result.includes(null) && setLoading(false)
     }
     useEffect(() => {
         setTimeout(() => {
             handleLoading()
-        }, 5000);
+        }, 3000);
     }, [data])
     useEffect(() => {
         getSlidersData()
@@ -68,7 +69,7 @@ const Home = () => {
         getTrailerVideoData()
         getTrailersData()
     }, [])
-    
+
     if (loading) return <div className='flex justify-center items-center w-screen h-screen bg-dark-gray'>
         <img className='animate-pulse h-12' src={Logo} />
         <div class="card">
@@ -86,11 +87,10 @@ const Home = () => {
     </div>
 
     return (
-        <div className="h-full font-iranYekan flex flex-col bg-cover z-0 bg-center bg-no-repeat homeBg relative  dir-rtl">
-            <div className="absolute z-10 inset-0 bg-dark-gray bg-opacity-90 backdrop-blur-[114px] opacity-80"></div>
-            <div className="relative z-10 flex flex-col flex-grow mx-24 my-5">
-                <div className="w-full">
-                    <Navbar />
+        <>
+            <Background>
+                <Navbar />
+                <div className="w-full max-w-screen-xl m-auto">
                     <Slider data={data.sliders} />
                     <Products data={data.products} />
                     <Articles data={data.articles} />
@@ -98,11 +98,11 @@ const Home = () => {
                     <TrailerVideo data={data.trailerVideo} />
                     <Trailers data={data.trailers} />
                 </div>
-            </div>
+            </Background>
             <div className="w-full mt-auto z-20">
                 <Footer />
             </div>
-        </div>
+        </>
     );
 };
 
