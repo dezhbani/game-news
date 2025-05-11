@@ -3,11 +3,10 @@ import Trailer from './Trailer';
 import { Link } from 'react-router-dom';
 
 const Trailers = ({data}) => {
-    console.log(data);
     
     return (
         <div className='flex flex-col py-5'>
-            <div className='flex flex-row-reverse'>
+            <div className='flex flex-row scrollbar-none max-lg:overflow-x-auto'>
                 {
                     data.map(trailer => <Trailer key={trailer.id} data={trailer} />)
                 }

@@ -6,7 +6,7 @@ const Trailer = ({ data }) => {
     const baseUrl = axios.defaults.baseURL
 
     return (
-        <div className='bg-dark-gray bg-opacity-100 z-50 mx-3 w-full rounded-3xl text-white'>
+        <div className='bg-dark-gray bg-opacity-100 z-50 mx-3 min-w-72 w-full last:ml-0 first:mr-0  rounded-3xl text-white'>
             <div className='h-40 relative'>
                 <span className='absolute top-4 right-4 bg-[#1B1D21] bg-opacity-70 py-0.5 px-2.5 rounded-md'>08:56</span>
                 <img className='h-full w-full object-cover rounded-t-3xl' alt="trailer" src={baseUrl + data.image} />

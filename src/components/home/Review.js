@@ -9,7 +9,7 @@ const Review = ({ data }) => {
     const baseUrl = axios.defaults.baseURL
 
     return (
-        <div className='w-1/3 h-[550px] mx-5 first:mr-0 last:ml-0 group'>
+        <div className='w-1/3 min-w-[80%] sm:min-w-96 h-[550px] max-sm:mx-3 mx-5 first:mr-0 last:ml-0 group'>
             <div className='relative h-full w-full'>
                 <div className='absolute transition-all ease-in-out duration-500 bottom-10 group-hover:-translate-y-2/3 text-white flex flex-col items-center h-fit w-full z-50'>
                     <h1 className='w-full flex justify-center h-fit font-bold text-[26px]'>{data.title}</h1>

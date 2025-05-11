@@ -45,12 +45,15 @@ const Slider = ({ data }) => {
         return () => clearInterval(interval);
     }, [active]);
     if (images) return (
-        <div className='h-full'>
-            <div className='absolute z-30 left-32 top-[360px]'>
-                <Card data={card} />
+        <div className='h-full max-w-screen-xl'>
+            <div className=' relative'>
+                <div className='absolute mx-auto z-30 left-10 2xl:left-32 top-[300px] max-xl:hidden'>
+                    <Card data={card} />
+                </div>
             </div>
-            <div className='mb-6 mt-16 relative max-w-full mx-auto h-[500px] overflow-hidden rounded-[40px]'>
-                <div className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${active * 100}%)` }}>
+
+            <div className='mb-6 relative max-w-full mx-auto h-72 md:h-96 lg:h-[500px] overflow-hidden rounded-[40px]'>
+                <div className="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out" style={{ transform: `translateX(-${active * 100}%)` }}>
                     {images.map((slide, index) => (
                         <div key={index} className="w-full h-full flex items-center justify-center absolute top-0 left-0" style={{ transform: `translateX(${index * 100}%)` }} >
                             <img src={baseUrl + slide} alt={`slide ${index}`} className="h-full w-full object-cover" />
@@ -59,7 +62,7 @@ const Slider = ({ data }) => {
                 </div>
             </div>
 
-            <div className='w-fit my-7 mx-4'>
+            <div className='w-fit my-5 mx-4 max-sm:hidden'>
                 <div className="relative h-full w-full">
                     <div className="absolute inset-y-0 flex justify-between w-full items-center">
                         <span className="rounded-full bg-violet flex items-center w-fit p-2 cursor-pointer" onClick={rightButton}>

@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
 // Icons
-// import Poster from '../assets/reviews/review3.jpeg'
 import PlayIcon from '../assets/icons/Play.svg'
 import OrangePlayIcon from '../assets/icons/OrangePlay.svg'
 import PauseIcon from '../assets/icons/Pause.svg'
@@ -74,7 +73,7 @@ const VideoPlayer = ({ video, posterImage }) => {
         }
     };
     return (
-        <div className="relative w-full h-[500px] group mx-auto bg-gray-800  rounded-[32px] shadow-md overflow-hidden" onDoubleClick={togglePlay}>
+        <div className="relative w-full h-fit lg:h-[500px] group mx-auto bg-gray-800 rounded-[32px] shadow-md overflow-hidden" onDoubleClick={togglePlay}>
             <video
                 ref={videoRef}
                 controlsList='nodownload noremoteplayback'

@@ -4,9 +4,9 @@ import ProductHeader from './ProductHeader';
 
 const Products = ({data}) => {
     return (
-        <div className='my-14'>
+        <div className='mt-10 md:my-14'>
             <ProductHeader />
-            <div className='flex justify-between my-8'>
+            <div className='flex justify-between py-8 max-lg:overflow-x-auto scrollbar-none'>
                 {
                     data?.map(product => <Product key={product.id} product={product} />)
                 }

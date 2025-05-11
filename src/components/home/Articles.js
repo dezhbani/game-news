@@ -20,9 +20,9 @@ const Articles = ({ data: articles }) => {
     return (
         <>
             <SectionTitle title='جدیدترین مقالات' />
-            <div className='text-white flex my-5'>
+            <div className='text-white flex flex-col lg:flex-row my-5'>
                 <ActiveArticle data={active} handlePrev={handlePrev} handleNext={handleNext} />
-                <div className='flex flex-col w-1/2 mr-5'>
+                <div className='flex flex-row scrollbar-none max-lg:overflow-x-auto max-lg:my-4 lg:flex-col lg:w-1/2 lg:mr-5'>
                     {
                         articles.filter(article => article.id !== active.id).map(article => <Article key={article.id} data={article} />)
                     }
