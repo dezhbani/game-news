@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: iranYekan-light;
-  src: url("./assets/fonts/IRANYekanLight.ttf");
+  font-family: iranSans;
+  src: url("./assets/fonts/IRANSansWeb.woff2");
 }
 @font-face {
   font-family: Gilroy;
@@ -12,7 +12,7 @@
 }
 body {
   margin: 0;
-  font-family: 'iranYekan-light';
+  font-family: 'iranSans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,6 +40,10 @@ input:-webkit-autofill {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.scrollbar-none{
+  scrollbar-width: none
 }
 
 /* Video Player */
