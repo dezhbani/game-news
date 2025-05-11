@@ -1,0 +1,48 @@
+#checkbox {
+    display: none;
+  }
+  
+  .toggle {
+    position: relative;
+    width: 25px; /* Adjusted from 40px to 25px */
+    height: 25px; /* Adjusted from 40px to 25px */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adjusted from 10px to 6px for proportionality */
+    transition-duration: 0.3s;
+  }
+  
+  .bars {
+    width: 100%;
+    height: 3px; /* Adjusted from 4px to 3px for proportionality */
+    background-color: rgb(253, 255, 243);
+    border-radius: 3px; /* Adjusted from 5px to 3px for proportionality */
+    transition-duration: 0.3s;
+  }
+  /* #checkbox:checked + .toggle .bars {
+    margin-left: 13px;
+  } */
+  #checkbox:checked + .toggle{
+    gap: 6px;
+  }
+  #checkbox:checked + .toggle #bar2 {
+    transform: translateY(9px) rotate(60deg); /* Adjusted from 14px to 9px */
+    margin-left: -2px;
+    transform-origin: right;
+    transition-duration: 0.3s;
+    z-index: 2;
+  }
+  
+  #checkbox:checked + .toggle #bar1 {
+    transform: translateY(18px) rotate(-60deg); /* Adjusted from 28px to 18px */
+    transition-duration: 0.3s;
+    transform-origin: left;
+    z-index: 1;
+  }
+  
+  #checkbox:checked + .toggle {
+    transform: rotate(90deg);
+  }
