@@ -20,7 +20,11 @@ const signup = async data => {
 
     localStorage.setItem("currentUser", strCurrentUser)
     customToast("success", "حساب کاربری ایجاد شد")
-    setTimeout(() => window.location.replace("/"), 3000);
+    setTimeout(() => {
+        window.location.replace("/")
+        localStorage.setItem('showTooltipOnHome', 'true');
+    }, 3000);
+    return true
 }
 const login = async data => {
     const copyData = JSON.parse(JSON.stringify(data))
@@ -34,8 +38,11 @@ const login = async data => {
     const strCurrentUser = JSON.stringify(findUser[0])
     localStorage.setItem("currentUser", strCurrentUser)
     customToast("success", "با موفقیت وارد شدید")
-    setTimeout(() => window.location.replace("/"), 3000);
-
+    setTimeout(() => {
+        window.location.replace("/")
+        localStorage.setItem('showTooltipOnHome', 'true');
+    }, 3000);
+    return true
 }
 
 export {
