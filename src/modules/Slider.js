@@ -12,15 +12,10 @@ const Slider = ({ data }) => {
     const baseUrl = axios.defaults.baseURL
     const [active, setActive] = useState(0);
     const [slider, setSlider] = useState({ start: 0, end: 4, max: 4 });
-    const [loadedCount, setLoadedCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
-
-    const items = Array.from({ length: 4 })
 
     const handleImageLoad = () => {
         setIsLoading(false)
-        console.log(false);
-
     }
     const rightButton = () => {
         let nextActive = (active + 1) % images.length;
@@ -77,7 +72,6 @@ const Slider = ({ data }) => {
                 </div>
             </div>
 
-
             <div className='w-fit my-5 mx-4 max-sm:hidden'>
                 <div className="relative h-full w-full">
                     <div className="absolute inset-y-0 flex justify-between w-full items-center">
@@ -90,9 +84,6 @@ const Slider = ({ data }) => {
                     </div>
 
                     <div className="flex dir-ltr items-center">
-                        {/* {
-                            isLoading && items.map((_, i) => <Skeleton key={i} height={56} width={96} className='mx-2 rounded-lg' />) 
-                        } */}
                         {
                             images.slice(slider.start, slider.end).map((slide, index) => (
                                 <div key={index} className={`mx-2 ${active === slider.start + index ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
