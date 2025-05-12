@@ -13,11 +13,14 @@ module.exports = {
       },
       fontFamily: {
         'Gilroy': ['Gilroy'],
-        'iranYekan': ['iranYekan-light'],
+        'iranSans': ['iranSans'],
 
       },
       height: {
         '22': '88px'
+      },
+      screens: {
+        'lm': '425px'
       }
     },
   },
