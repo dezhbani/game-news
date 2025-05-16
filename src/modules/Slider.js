@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import axios from 'axios';
-import 'react-loading-skeleton/dist/skeleton.css';
+
 // Icons
 import ArrowRight from '../assets/icons/SmallRight.svg';
 import ArrowLeft from '../assets/icons/SmallLeft.svg';
-import Skeleton from 'react-loading-skeleton';
 
-const Slider = ({ data }) => {
-    const { images, card } = data
-    const baseUrl = axios.defaults.baseURL
+const Slider = ({ data = {} }) => {
+    const { images = [], card = {} } = data;
+    const baseUrl = axios.defaults.baseURL;
     const [active, setActive] = useState(0);
     const [slider, setSlider] = useState({ start: 0, end: 4, max: 4 });
-    const [isLoading, setIsLoading] = useState(true);
 
-    const handleImageLoad = () => {
-        setIsLoading(false)
-    }
     const rightButton = () => {
         let nextActive = (active + 1) % images.length;
         setActive(nextActive);
@@ -42,62 +37,48 @@ const Slider = ({ data }) => {
             setSlider({ start: newStart, end: newEnd - 1, max: slider.max });
         }
     };
+
     useEffect(() => {
         const interval = setInterval(() => {
-            !isLoading && rightButton();
+            rightButton();
         }, 5000);
 
         return () => clearInterval(interval);
     }, [active]);
-    if (images.length) return (
+
+    if (!images.length) return null;
+
+    return (
         <div className='h-full max-w-screen-xl'>
-            {
-                !isLoading &&
-                <div className=' relative'>
-                    <div className='absolute mx-auto z-30 left-10 2xl:left-32 top-[300px] max-xl:hidden'>
-                        <Card data={card} />
-                    </div>
-                </div>
-            }
+            <div className='relative'>
+                <div className='absolute mx-auto z-30 left-10 2xl:left-32 top-[300px] max-xl:hidden'><Card data={card} /></div>
+            </div>
             <div className='mb-6 min-w-96 relative max-w-full mx-auto h-72 md:h-96 lg:h-[500px] overflow-hidden rounded-[40px]'>
-                {
-                    isLoading && <Skeleton height="100%" width="100%" />
-                }
                 <div className="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out" style={{ transform: `translateX(-${active * 100}%)` }}>
                     {images.map((slide, index) => (
-                        <div key={index} className="w-full h-full flex items-center justify-center absolute top-0 left-0" style={{ transform: `translateX(${index * 100}%)` }} >
-                            <img onLoad={handleImageLoad} src={baseUrl + slide} loading='lazy' alt={`slide ${index}`} className="h-full w-full object-cover" />
+                        <div key={index} className="w-full h-full flex items-center justify-center absolute top-0 left-0" style={{ transform: `translateX(${index * 100}%)` }}>
+                            <img src={baseUrl + slide} loading="lazy" alt={`slide ${index}`} className="h-full w-full object-cover" />
                         </div>
                     ))}
                 </div>
             </div>
-
             <div className='w-fit my-5 mx-4 max-sm:hidden'>
                 <div className="relative h-full w-full">
                     <div className="absolute inset-y-0 flex justify-between w-full items-center">
-                        <span className="z-10 rounded-full bg-violet flex items-center w-fit p-2 cursor-pointer" onClick={rightButton}>
-                            <img className="h-3.5 w-3.5" src={ArrowRight} alt='ArrowRight' />
-                        </span>
-                        <span className="z-10 rounded-full bg-violet flex items-center w-fit p-2 cursor-pointer" onClick={leftButton}>
-                            <img className="h-3.5 w-3.5" src={ArrowLeft} alt='ArrowLeft' />
-                        </span>
+                        <span className="z-10 rounded-full bg-violet flex items-center w-fit p-2 cursor-pointer" onClick={rightButton}><img className="h-3.5 w-3.5" src={ArrowRight} alt="ArrowRight" /></span>
+                        <span className="z-10 rounded-full bg-violet flex items-center w-fit p-2 cursor-pointer" onClick={leftButton}><img className="h-3.5 w-3.5" src={ArrowLeft} alt="ArrowLeft" /></span>
                     </div>
-
                     <div className="flex dir-ltr items-center">
-                        {
-                            images.slice(slider.start, slider.end).map((slide, index) => (
-                                <div key={index} className={`mx-2 ${active === slider.start + index ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
-                                    {
-                                        isLoading ? <Skeleton key={index} height={56} width={96} className='rounded-lg' />
-                                        :<img className="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={baseUrl + slide} />
-                                    }
-                                </div>
-                            ))
-                        }
+                        {images.slice(slider.start, slider.end).map((slide, index) => (
+                            <div key={index} className={`mx-2 ${active === slider.start + index ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
+                                <img className="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={baseUrl + slide} />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 
