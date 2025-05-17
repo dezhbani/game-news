@@ -77,7 +77,7 @@ const Slider = ({ data }) => {
                         {
                             images.slice(slider.start, slider.end).map((slide, index) => (
                                 <div key={index} className={`mx-2 ${active === slider.start + index ? 'bg-dark-gray shadow-[0px_4px_3px_rgba(27, 29, 33, 1)] p-1.5 rounded-lg' : ''}`}>
-                                    <Image className="h-14 w-24 rounded-lg" imageClassName="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={baseUrl + slide} />
+                                    <Image className="h-14 w-24 rounded-lg" alt={`slide ${index}`} src={baseUrl + slide} />
                                 </div>
                             ))
                         }
