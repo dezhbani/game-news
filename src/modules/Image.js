@@ -4,11 +4,15 @@ import Skeleton from 'react-loading-skeleton';
 const Image = ({
     src,
     alt = 'image',
-    className = ''
+    className = '',
+    onLoadComplete = () => {}
 }) => {
     const [isLoading, setIsLoading] = useState(true);
 
-    const handleImageLoad = () => setIsLoading(false);
+    const handleImageLoad = () => {
+        setIsLoading(false);
+        onLoadComplete()
+    }
 
     return (
         <div className={`relative overflow-hidden ${className}`}>
