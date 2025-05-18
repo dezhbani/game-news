@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import axios from 'axios';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Image from './Image';
+
 // Icons
 import ArrowRight from '../assets/icons/SmallRight.svg';
 import ArrowLeft from '../assets/icons/SmallLeft.svg';
-import Skeleton from 'react-loading-skeleton';
-import Image from './Image';
 
 const Slider = ({ data }) => {
     const { images, card } = data
     const baseUrl = axios.defaults.baseURL
     const [active, setActive] = useState(0);
     const [slider, setSlider] = useState({ start: 0, end: 4, max: 4 });
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     const rightButton = () => {
         let nextActive = (active + 1) % images.length;
@@ -48,16 +49,21 @@ const Slider = ({ data }) => {
     }, [active]);
     if (images.length) return (
         <div className='h-full max-w-screen-xl'>
-            <div className=' relative'>
-                <div className='absolute mx-auto z-30 left-10 2xl:left-32 top-[300px] max-xl:hidden'>
-                    <Card data={card} />
-                </div>
-            </div>
-            <div className='mb-6 min-w-96 relative max-w-full mx-auto h-72 md:h-96 lg:h-[500px] overflow-hidden rounded-[40px]'>
+            {
+                imageLoaded && (
+                    <div className='relative'>
+                        <div className='absolute mx-auto z-30 left-10 2xl:left-32 top-[300px] max-xl:hidden'>
+                            <Card data={card} />
+                        </div>
+                    </div>
+                )
+
+            }
+            <div className='mb-6 relative max-w-full mx-auto h-72 md:h-96 lg:h-[500px] overflow-hidden rounded-[40px]'>
                 <div className="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out" style={{ transform: `translateX(-${active * 100}%)` }}>
                     {images.map((slide, index) => (
                         <div key={index} className="w-full h-full flex items-center justify-center absolute top-0 left-0" style={{ transform: `translateX(${index * 100}%)` }} >
-                            <Image src={baseUrl + slide} alt={`slide ${index}`} className="h-full w-full object-cover" />
+                            <Image onLoadComplete={() => setImageLoaded(true)} src={baseUrl + slide} alt={`slide ${index}`} className="h-full w-full object-cover" />
                         </div>
                     ))}
                 </div>
