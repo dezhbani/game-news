@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import useSmartImageLoading from '../hooks/useSmartImageLoading';
 
-const SmartImage = ({
+const Image = ({
     src,
     alt = 'image',
     className = '',
@@ -38,4 +38,4 @@ const SmartImage = ({
     );
 };
 
-export default SmartImage;
+export default Image;

@@ -18,6 +18,7 @@ import Kasbokar from '../../assets/footer/kasbokar 1.png'
 import Samandehi from '../../assets/footer/rezi 1.png'
 import { customToast } from '../../utils/functions';
 import { emailValidation } from '../../validations/auth.validation';
+import Image from '../../modules/Image';
 
 const Footer = () => {
     const [email, setEmail] = useState("")
@@ -33,7 +34,7 @@ const Footer = () => {
             <div className='bg-[#33353b] px-6 md:px-24'>
                 <div className='flex lg:justify-between justify-center max-lg:flex-col max-lg:flex-wrap w-full max-w-screen-xl m-auto'>
                     <div className='flex max-lg:justify-between w-full'>
-                        <div className='mx-auto px-5 my-6 lg:my-16 max-w-80'>
+                        <div className='ml-auto px-5 my-6 lg:my-16 max-w-80'>
                             <h6 className='text-base sm:text-lg md:text-xl font-bold'>داغترین مطالب هفته</h6>
                             <ul className="flex flex-col mt-6 lg:mt-14 gap-4 text-sm md:text-md">
                                 {
@@ -44,7 +45,7 @@ const Footer = () => {
                                     ].map((item, idx) => (
                                         <li key={idx} className="flex">
                                             <Link className="flex" to="#">
-                                                <img className="w-24 h-[4.25rem] rounded-xl" src={item.img} alt="image" />
+                                                <Image className="w-24 h-[4.25rem] rounded-xl" src={item.img} alt="image" />
                                                 <p className="w-48 mr-2 font-light">{item.text}</p>
                                             </Link>
                                         </li>

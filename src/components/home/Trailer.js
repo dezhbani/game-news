@@ -1,6 +1,7 @@
 import React from 'react';
 import { textMaxLength } from '../../utils/functions';
 import axios from 'axios';
+import Image from '../../modules/Image';
 
 const Trailer = ({ data }) => {
     const baseUrl = axios.defaults.baseURL
@@ -9,7 +10,7 @@ const Trailer = ({ data }) => {
         <div className='bg-dark-gray bg-opacity-100 z-50 mx-3 min-w-72 w-full last:ml-0 first:mr-0  rounded-3xl text-white'>
             <div className='h-40 relative'>
                 <span className='absolute top-4 right-4 bg-[#1B1D21] bg-opacity-70 py-0.5 px-2.5 rounded-md'>08:56</span>
-                <img className='h-full w-full object-cover rounded-t-3xl' alt="trailer" src={baseUrl + data.image} />
+                <Image className='h-full w-full object-cover rounded-t-3xl' alt="trailer-image" src={baseUrl + data.image} />
                 <div className='relative dir-ltr bg-[#1B1D21] h-1 min-w-full'>
                     <span className='absolute bg-orange h-1 z-20' style={{ width: '50%' }}></span>
                 </div>
@@ -27,7 +28,7 @@ const Trailer = ({ data }) => {
                     </div>
                 </div>
                 <div className='flex mt-5'>
-                    <img alt='icon'className='h-6 w-6 rounded-full object-cover object-center' src={baseUrl + data.author.profileImage} />
+                    <Image alt='icon'className='h-6 w-6 rounded-full object-cover object-center' src={baseUrl + data.author.profileImage} />
                     <p className='mx-2 text-sm font-bold'>منتشر کننده: {data.author.name}</p>
                 </div>
             </div>

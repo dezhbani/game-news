@@ -1,5 +1,6 @@
 import React from 'react';   
 import axios from 'axios';
+import Image from '../../modules/Image';
 
 const Product = ({ product }) => {
     const baseUrl = axios.defaults.baseURL
@@ -8,7 +9,7 @@ const Product = ({ product }) => {
     return (
         <div className=' w-72 min-w-72 group rounded-[28px] flex flex-col hover:shadow-[2px_4px_30px_0px_#ffffff40] mx-3 2xl:mx-5 first:mr-0 last:ml-0 my-5 text-white 2xl:w-96 hover:scale-110 ease-in-out duration-500'>
             <div className=' rounded-t-[28px] flex flex-col bg-dark-gray shadow-xl  bg-opacity-60 backdrop-blur-3xl'>
-                <img className='h-52 w-full object-cover rounded-t-[28px]' alt='product-image' src={baseUrl + image} />
+                <Image className='h-52 w-full object-cover rounded-t-[28px]' alt='product-image' src={baseUrl + image} />
                 <div className='mx-7 mt-3 font-medium text-xl'>
                     <h2 className='max-w-56 my-5'>{name}</h2>
                     <span className='w-full mt-3 flex font-black justify-center text-orange'>{price}</span>
