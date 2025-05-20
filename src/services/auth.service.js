@@ -19,13 +19,13 @@ const signup = async data => {
     const strCurrentUser = JSON.stringify(copyData)
 
     localStorage.setItem("currentUser", strCurrentUser)
-    customToast("success", "حساب کاربری ایجاد شد")
     setTimeout(() => {
         window.location.replace("/")
         localStorage.setItem('showTooltipOnHome', 'true');
     }, 3000);
     return true
 }
+
 const login = async data => {
     const copyData = JSON.parse(JSON.stringify(data))
     if (!localStorage.getItem('users')) localStorage.setItem('users', JSON.stringify([]))
@@ -35,9 +35,9 @@ const login = async data => {
 
     if (!findUser.length) return customToast("error", "ایمیل وارد شده وجود ندارد")
     else if (findUser[0].password !== copyData.password) return customToast("error", "ایمیل یا رمز وارد شده صحیح نیست")
+
     const strCurrentUser = JSON.stringify(findUser[0])
     localStorage.setItem("currentUser", strCurrentUser)
-    customToast("success", "با موفقیت وارد شدید")
     setTimeout(() => {
         window.location.replace("/")
         localStorage.setItem('showTooltipOnHome', 'true');
