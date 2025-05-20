@@ -34,7 +34,7 @@ const Footer = () => {
             <div className='bg-[#33353b] px-6 md:px-24'>
                 <div className='flex lg:justify-between justify-center max-lg:flex-col max-lg:flex-wrap w-full max-w-screen-xl m-auto'>
                     <div className='flex max-lg:justify-between w-full'>
-                        <div className='ml-auto px-5 my-6 lg:my-16 max-w-80'>
+                        <div className='ml-auto sm:px-5 my-6 lg:my-16 max-w-80'>
                             <h6 className='text-base sm:text-lg md:text-xl font-bold'>داغترین مطالب هفته</h6>
                             <ul className="flex flex-col mt-6 lg:mt-14 gap-4 text-sm md:text-md">
                                 {
@@ -46,14 +46,14 @@ const Footer = () => {
                                         <li key={idx} className="flex">
                                             <Link className="flex" to="#">
                                                 <Image className="w-24 h-[4.25rem] rounded-xl" src={item.img} alt="image" />
-                                                <p className="w-48 mr-2 font-light">{item.text}</p>
+                                                <p className="w-40 mr-2 font-light">{item.text}</p>
                                             </Link>
                                         </li>
                                     ))
                                 }
                             </ul>
                         </div>
-                        <div className='mx-auto px-5 min-w-fit max-lm:hidden my-6 lg:my-16'>
+                        <div className='mx-auto px-5 min-w-fit max-sm:hidden my-6 lg:my-16'>
                             <h6 className='text-md sm:text-lg md:text-xl font-bold'>پربازدیدترین صفحات</h6>
                             <ul className="flex flex-col mt-6 lg:mt-14 gap-4 lg:gap-5 text-sm md:text-base">
                                 {['مقالات', 'فروشگاه', 'درباره ما', 'تماس با ما', 'جدیدترین بازی ها'].map((title, i) => (
@@ -64,7 +64,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className='lg:mr-10 my-6 lg:my-16 flex flex-col justify-around mx-auto w-full max-w-[410px]'>
+                    <div className='lg:mr-10 my-6 lg:my-16 flex flex-col justify-around mx-auto w-full max-[1124px]:lg:max-w-[340px] max-w-[410px]'>
                         <h6 className='text-xl font-bold'>عضویت در خبرنامه</h6>
                         <div className='flex flex-col mt-6 lg:mt-14 gap-4 text-base'>
                             <div className='flex items-center w-full '>
