@@ -32,7 +32,7 @@ const Hamburger = ({ status, onChange }) => {
     )
 }
 
-const Navbar = ({logoVisiblity=true}) => {
+const Navbar = ({ logoVisiblity = true }) => {
     const { user, refreshUserData } = useContext(ProfileContext)
     const [menu, setMenu] = useState(false)
     const [showTooltip, setShowTooltip] = useState(false);
@@ -44,17 +44,17 @@ const Navbar = ({logoVisiblity=true}) => {
         if (shouldShow === 'true') {
             setShowTooltip(true);
             timeout = setTimeout(() => {
-            localStorage.removeItem('showTooltipOnHome'); // فقط یک‌بار نشون بده
-            setShowTooltip(false)
+                localStorage.removeItem('showTooltipOnHome');
+                setShowTooltip(false)
             }, 5000);
         }
-        
+
         return () => {
-            if (timeout) clearTimeout(timeout); // جلوگیری از memory leak
-          };
+            if (timeout) clearTimeout(timeout);
+        };
     }, []);
     const toggleMenu = () => {
-        setMenu((prevMenu) => !prevMenu); // Toggle menu state
+        setMenu((prevMenu) => !prevMenu);
     };
 
     const handleExitAccount = () => {
@@ -64,8 +64,8 @@ const Navbar = ({logoVisiblity=true}) => {
     return (
         <>
             {
-                menu && <div className="fixed font-bolder lg:hidden inset-0 z-50 transition-colors duration-300 bg-[#1C1C1C] bg-opacity-50 backdrop-blur-sm">
-                    <div className="flex-col bg-dark-gray rounded-l-3xl p-8 pt-12 h-dvh w-72 transition-all duration-300 relative overflow-y-auto scrollbar-none">
+                <div className={`fixed font-bolder lg:hidden inset-0 z-50 bg-[#1C1C1C]/50 backdrop-blur-sm transition-opacity duration-300 ${menu ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                    <div className={`flex-col bg-dark-gray rounded-l-3xl p-8 pt-12 h-dvh w-72 transition-transform duration-300 transform ${menu ? 'translate-x-0' : 'translate-x-full'} relative overflow-y-auto scrollbar-none`}>
                         <div className="absolute top-5 left-6">
                             <Hamburger status={menu} onChange={toggleMenu} />
                         </div>
@@ -147,15 +147,21 @@ const Navbar = ({logoVisiblity=true}) => {
                                 <button className="px-6 sm:px-9 py-2 max-sm:text-sm rounded-lg w-max bg-violet text-white">ثبت نام</button>
                             </Link>
                             :
-                            <div onDoubleClick={handleExitAccount} className='relative group flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/10'>
-                                <div className={`absolute z-20 left-full top-1 mx-2 mb-2 ${showTooltip? 'opacity-100': 'opacity-0'} group-hover:opacity-100 transition duration-100 transform translate-y-0`}>
-                                    <div className="flex bg-slate-800 w-max max-w-xs text-white rounded-lg p-2 items-center dir-rtl">
-                                        <WarningIcon />
-                                        <p className="text-xs mx-2 mb-1">دوبار کلیک کنید تا از اکانت خارج شوید!</p>
+                            <div onDoubleClick={handleExitAccount} className='relative flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/10'>
+                                {(
+                                    <div className={`${showTooltip ? 'opacity-100': 'opacity-0'} absolute z-20 left-full top-1 mx-2 mb-2 transition duration-200 transform translate-y-0`}>
+                                        <div className="flex bg-slate-800 w-max max-w-xs text-white rounded-lg p-2 items-center dir-rtl">
+                                            <WarningIcon />
+                                            <p className="text-xs mx-2 mb-1">دوبار کلیک کنید تا از اکانت خارج شوید!</p>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
 
-                                <UserIcon className='stroke-white fill-none' />
+                                <UserIcon
+                                    className='stroke-white fill-none'
+                                    onMouseEnter={() => setShowTooltip(true)}
+                                    onMouseLeave={() => setShowTooltip(false)}
+                                />
                             </div>
                     }
                 </div>
