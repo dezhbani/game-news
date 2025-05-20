@@ -135,9 +135,6 @@ const Navbar = ({ logoVisiblity = true }) => {
                         <Link>وبلاگ</Link>
                     </div>
                 </div>
-                {/* <div className='w-full items-center justify-center flex'>
-                    <img alt='icon' className='md:w-14 h-9 w-full  md:ml-5' src={Logo} />
-                </div> */}
                 <div className='flex'>
                     <img className='w-5 mx-3 max-md:hidden' src={Search} alt='search' />
                     <img className='w-5 mx-3 max-md:hidden' src={Dark} alt='dark' />

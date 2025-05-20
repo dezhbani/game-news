@@ -84,8 +84,8 @@ const VideoPlayer = ({ video, posterImage }) => {
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={() => setIsPlaying(false)}>
             </video>
-            <button className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-black backdrop-blur-2xl bg-opacity-30 rounded-2xl p-8 ${isPlaying && 'invisible'} transition ease-in-out duration-300`} onClick={togglePlay}>
-                <img className='fill-orange' alt="icon" src={OrangePlayIcon} />
+            <button className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-black backdrop-blur-2xl bg-opacity-30 rounded-2xl p-3 lm:p-5 md:p-8 ${isPlaying && 'invisible'} transition ease-in-out duration-300`} onClick={togglePlay}>
+                <img className='max-lm:h-6 fill-orange' alt="icon" src={OrangePlayIcon} />
             </button>
             <div className="absolute dir-ltr pb-3 px-10 group-hover:visible invisible bottom-0 left-0 w-full bg-gray-700 p-2 flex items-center justify-between">
                 <button onClick={togglePlay} className="bg-[#1B1D21] bg-opacity-70 text-white font-bold p-1.5 rounded">
