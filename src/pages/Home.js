@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react';
 // API Services
 import { getArticles, getProducts, getReviews, getSlider, getTrailers, getTrailerVideo } from '../services/home.service';
 
-// Images
-import Logo from '../assets/Logo.svg'
-
 // Components
 import Navbar from '../components/public/Navbar';
 import Footer from '../components/home/Footer';
@@ -16,6 +13,7 @@ import Reviews from '../components/home/Reviews';
 import TrailerVideo from '../components/home/TrailerVideo';
 import Trailers from '../components/home/Trailers';
 import Background from '../components/public/Background';
+import Loading from '../components/public/Loading';
 
 const Home = () => {
     const [data, setData] = useState({
@@ -70,22 +68,7 @@ const Home = () => {
         getTrailersData()
     }, [])
 
-    if (loading) return <div className='flex justify-center items-center w-screen h-screen bg-dark-gray'>
-        <img className='animate-pulse h-12' src={Logo} />
-        <div class="card">
-            <div class="loader">
-                <p>Loading</p>
-                <div class="words">
-                    <span class="word">games</span>
-                    <span class="word">trailers</span>
-                    <span class="word">news</span>
-                    <span class="word">reviews</span>
-                    <span class="word">guides</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    if (loading) return <Loading />
     return (
         <>
             <Background>
